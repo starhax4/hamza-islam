@@ -7,7 +7,7 @@ const Contact = () => {
         <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2>
         <div className="max-w-md mx-auto">
           <p className="text-center mb-6 text-muted-foreground">
-            I'm currently seeking internship opportunities in Web Development and AI. Feel free to reach out!
+            I&apos;m currently seeking internship opportunities in Web Development and AI. Feel free to reach out!
           </p>
           <div className="space-y-4">
             <div className="flex items-center justify-center">
