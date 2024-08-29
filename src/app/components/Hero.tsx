@@ -1,15 +1,29 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 const Hero = () => {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === 'dark';
 
   return (
-    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden py-20 ${theme === 'dark' ? 'gradient-bg-dark' : 'gradient-bg-light'}`}>
+    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden py-20 ${isDark ? 'gradient-bg-dark' : 'gradient-bg-light'}`}>
+      <div className="absolute inset-0 z-0">
+        <div className={`absolute inset-0 bg-gradient-to-br ${isDark ? 'from-blue-900 to-purple-900 opacity-30' : 'from-blue-200 to-purple-200 opacity-50'}`}></div>
+        <div className={`absolute inset-0 bg-[url('/path/to/pattern.svg')] ${isDark ? 'opacity-10' : 'opacity-20'}`}></div>
+      </div>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -20,7 +34,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-foreground"
+          className={`text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent ${isDark ? 'bg-gradient-to-r from-blue-400 to-purple-400' : 'bg-gradient-to-r from-blue-700 to-purple-700'}`}
         >
           Hamza Islam
         </motion.h1>
@@ -28,7 +42,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-3xl mb-8 text-muted-foreground"
+          className={`text-xl sm:text-2xl md:text-3xl mb-8 ${isDark ? 'text-gray-200' : 'text-gray-800'} font-semibold`}
         >
           AI & Full Stack Developer
         </motion.p>
@@ -36,7 +50,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-base sm:text-lg mb-12 text-muted-foreground max-w-2xl mx-auto"
+          className={`text-base sm:text-lg mb-12 ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-2xl mx-auto`}
         >
           Passionate about creating innovative solutions using cutting-edge AI technologies and robust full-stack development practices.
         </motion.p>
@@ -44,16 +58,40 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
+          className="flex flex-col sm:flex-row justify-center items-center gap-6"
         >
           <Link href="#projects">
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0, 0, 0, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition-all duration-300 shadow-lg"
+              className={`${isDark ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-700 hover:bg-blue-800'} text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg flex items-center`}
             >
               Explore My Work
+              <FaArrowRight className="ml-2" />
             </motion.button>
           </Link>
+          <div className="flex gap-6">
+            <motion.a
+              href="https://github.com/starhax4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}
+            >
+              <FaGithub size={32} />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/hamzaislam01"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}
+            >
+              <FaLinkedin size={32} />
+            </motion.a>
+          </div>
         </motion.div>
       </motion.div>
     </section>

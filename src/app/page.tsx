@@ -12,8 +12,8 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <Navbar />
       <Hero />
-      <div className="my-24">
-        <hr className="w-[95%] mx-auto border-t-4 border-primary/20" />
+      <div className="mb-24 mt-0">
+        <hr className="w-full mx-auto border-t-4 border-primary/20" />
       </div>
       <About />
       <div className="my-24">

@@ -9,7 +9,7 @@ interface PhotoSliderProps {
   interval?: number;
 }
 
-const PhotoSlider: React.FC<PhotoSliderProps> = ({ photos, interval = 5000 }) => {
+const PhotoSlider: React.FC<PhotoSliderProps> = ({ photos, interval = 10000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
