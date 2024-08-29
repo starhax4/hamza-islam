@@ -55,8 +55,8 @@ const Navbar = () => {
     >
       <div className={`w-[90%] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-full ${
         theme === 'dark' 
-          ? 'bg-gray-800/50' 
-          : 'bg-gray-200/50'
+          ? 'bg-gray-700/30' 
+          : 'bg-gray-300/30'
       } backdrop-blur-md`}>
         <div className="flex items-center justify-between h-16">
           <Link href="/">
