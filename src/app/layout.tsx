@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
+import PageTransition from './components/PageTransition'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,14 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
-      </head>
-      <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <PageTransition>
+            {children}
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>

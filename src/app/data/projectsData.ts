@@ -1,0 +1,38 @@
+export const projectsData = {
+  'project1': {
+    title: "AI Chatbot",
+    description: "An intelligent chatbot powered by GPT-3, designed to provide human-like interactions and assist users with various tasks.",
+    images: ["/images/ai-chatbot-1.jpg", "/images/ai-chatbot-2.jpg", "/images/ai-chatbot-3.jpg"],
+    githubLink: "https://github.com/yourusername/ai-chatbot",
+    behanceLink: "https://www.behance.net/gallery/ai-chatbot",
+    technologies: ["React", "Node.js", "OpenAI API", "MongoDB"],
+    category: "AI",
+  },
+  'project2': {
+    title: "E-commerce Platform",
+    description: "A full-stack online shopping platform with user authentication, product catalog, and secure payment processing.",
+    images: ["/images/ecommerce-1.jpg", "/images/ecommerce-2.jpg", "/images/ecommerce-3.jpg"],
+    githubLink: "https://github.com/yourusername/ecommerce-platform",
+    behanceLink: "https://www.behance.net/gallery/ecommerce-platform",
+    technologies: ["Next.js", "Express", "PostgreSQL", "Stripe API"],
+    category: "Full Stack",
+  },
+  'project3': {
+    title: "Data Visualization Dashboard",
+    description: "Interactive charts and graphs for data analysis, allowing users to explore and understand complex datasets.",
+    images: ["/images/data-viz-1.jpg", "/images/data-viz-2.jpg", "/images/data-viz-3.jpg"],
+    githubLink: "https://github.com/yourusername/data-viz-dashboard",
+    behanceLink: "https://www.behance.net/gallery/data-viz-dashboard",
+    technologies: ["D3.js", "React", "Python", "Flask"],
+    category: "UX/UI",
+  },
+  'project4': {
+    title: "Data Visualization Dashboard",
+    description: "Interactive charts and graphs for data analysis, allowing users to explore and understand complex datasets.",
+    images: ["/images/data-viz-1.jpg", "/images/data-viz-2.jpg", "/images/data-viz-3.jpg"],
+    githubLink: "https://github.com/yourusername/data-viz-dashboard",
+    behanceLink: "https://www.behance.net/gallery/data-viz-dashboard",
+    technologies: ["D3.js", "React", "Python", "Flask"],
+    category: "UX/UI",
+  },
+};

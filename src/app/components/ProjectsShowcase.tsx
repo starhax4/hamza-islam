@@ -13,54 +13,27 @@ interface Project {
   githubUrl: string;
   demoUrl: string;
 }
+import { projectsData } from '../data/projectsData';
 
-const projects: Project[] = [
-  {
-    id: '1',
-    title: 'AI-Powered Image Recognition',
-    description: 'A deep learning model for real-time object detection in images and video streams.',
-    category: 'AI',
-    technologies: ['Python', 'TensorFlow', 'OpenCV'],
-    githubUrl: 'https://github.com/username/ai-image-recognition',
-    demoUrl: 'https://ai-image-recognition-demo.com'
-  },
-  {
-    id: '2',
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce solution with user authentication, product management, and payment integration.',
-    category: 'Full Stack',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/username/ecommerce-platform',
-    demoUrl: 'https://ecommerce-platform-demo.com'
-  },
-  {
-    id: '3',
-    title: 'Responsive Portfolio Website',
-    description: 'A modern, responsive portfolio website showcasing projects and skills.',
-    category: 'UX/UI',
-    technologies: ['React', 'Tailwind CSS', 'NextJS', 'Figma'],
-    githubUrl: 'https://github.com/starhax4/hamza-islam',
-    demoUrl: 'https://portfolio-website-demo.com'
-  },
-  {
-    id: '4',
-    title: 'Natural Language Processing Chatbot',
-    description: 'An AI-powered chatbot capable of understanding and responding to natural language queries.',
-    category: 'AI',
-    technologies: ['Python', 'NLTK', 'TensorFlow', 'Flask'],
-    githubUrl: 'https://github.com/username/nlp-chatbot',
-    demoUrl: 'https://nlp-chatbot-demo.com'
-  },
-  {
-    id: '5',
-    title: 'Task Management App',
-    description: 'A full-stack task management application with real-time updates and team collaboration features.',
-    category: 'Full Stack',
-    technologies: ['Vue.js', 'Express.js', 'PostgreSQL', 'Socket.io'],
-    githubUrl: 'https://github.com/username/task-management-app',
-    demoUrl: 'https://task-management-app-demo.com'
-  }
-];
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  category: 'AI' | 'Full Stack' | 'UX/UI';
+  technologies: string[];
+  githubUrl: string;
+  demoUrl: string;
+}
+
+const projects: Project[] = Object.entries(projectsData).map(([id, project]) => ({
+  id,
+  title: project.title,
+  description: project.description,
+  category: project.category as 'AI' | 'Full Stack' | 'UX/UI',
+  technologies: project.technologies,
+  githubUrl: project.githubLink,
+  demoUrl: project.behanceLink,
+}));
 
 const categories = ['All', 'AI', 'Full Stack', 'UX/UI'];
 
