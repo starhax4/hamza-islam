@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
+
 
 const skills = [
   'Python',
@@ -18,10 +18,10 @@ const skills = [
 
 
 const Skills = () => {
-  const { theme } = useTheme();
+
 
   return (
-    <section id="skills" className={`section-padding ${theme === 'dark' ? 'bg-background' : 'bg-white'}`}>
+    <section id="skills" className="section-padding bg-background">
       
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 text-foreground">My Skills</h2>

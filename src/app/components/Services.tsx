@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Brain, Layout } from 'lucide-react';
-import { useTheme } from 'next-themes';
+
 
 const services = [
   {
@@ -24,10 +24,10 @@ const services = [
 ];
 
 const Services = () => {
-  const { theme } = useTheme();
+
 
   return (
-    <section id="services" className={`section-padding ${theme === 'dark' ? 'bg-background' : 'bg-white'}`}>
+    <section id="services" className="section-padding bg-background">
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 text-foreground">My Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
