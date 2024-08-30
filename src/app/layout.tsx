@@ -13,20 +13,14 @@ export const metadata = {
   description: 'AI-focused Full Stack Developer portfolio of Hamza Islam',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={spaceGrotesk.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </ThemeProvider>
+        <main className="overflow-hidden"> {/* Remove any padding or margin here */}
+          {children}
+        </main>
       </body>
     </html>
-  )
+  );
 }

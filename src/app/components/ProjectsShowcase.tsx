@@ -4,15 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: 'AI' | 'Full Stack' | 'UX/UI';
-  technologies: string[];
-  githubUrl: string;
-  demoUrl: string;
-}
+
 import { projectsData } from '../data/projectsData';
 
 interface Project {
@@ -50,9 +42,9 @@ export default function ProjectsShowcase() {
   }, [selectedCategory]);
 
   return (
-    <section id="projects" className="section-padding bg-background">
+    <section id="projects" className="pt-2 pb-16 md:py-16 bg-background"> {/* Adjusted padding */}
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center text-foreground">Projects</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center text-foreground">Projects</h2>
         
         {/* Category filters */}
         <div className="flex justify-center space-x-4 mb-8">

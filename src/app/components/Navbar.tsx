@@ -14,19 +14,33 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [isMouseNearTop, setIsMouseNearTop] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      const isScrollingUp = prevScrollPos > currentScrollPos;
+      setVisible(isScrollingUp || currentScrollPos < 10 || isMouseNearTop);
       setPrevScrollPos(currentScrollPos);
       setScrolled(currentScrollPos > 50);
     };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const isNearTop = e.clientY <= 50;
+      setIsMouseNearTop(isNearTop);
+      setVisible(isNearTop || prevScrollPos > window.pageYOffset || window.pageYOffset < 10);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [prevScrollPos, isMouseNearTop]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
