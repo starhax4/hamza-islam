@@ -17,13 +17,11 @@ export default function RootLayout({
 	children,
 }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
-			<body className={spaceGrotesk.className}>
-				<main className="overflow-hidden">
-					{" "}
-					{/* Remove any padding or margin here */}
+		<html lang="en" suppressHydrationWarning>
+			<body>
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					{children}
-				</main>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

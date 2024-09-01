@@ -47,6 +47,13 @@ const Navbar: FC = () => {
 		};
 	}, [prevScrollPos, isMouseNearTop]);
 
+	useEffect(() => {
+		if (theme === 'system') {
+			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			setTheme(systemTheme);
+		}
+	}, [theme, setTheme]);
+
 	const navItems = [
 		{ name: "Home", href: "#home" },
 		{ name: "About", href: "#about" },
@@ -98,7 +105,11 @@ const Navbar: FC = () => {
 								{item.name}
 							</motion.a>
 						))}
-						{mounted && <ThemeToggle />}
+						{mounted && (
+							<>
+								<ThemeToggle />
+							</>
+						)}
 					</div>
 					<div className="md:hidden flex items-center">
 						{mounted && <ThemeToggle />}
