@@ -18,6 +18,7 @@ export default function RootLayout({
 }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+    <meta name="google-site-verification" content="faGHSf-4N4WpEOFSI_4KVJG4ExtWUD0Syv8doab01MQ" />
 
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
